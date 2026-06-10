@@ -56,8 +56,8 @@ export default function Hero() {
         <motion.div style={{ y: y1, opacity, scale }} className="w-full md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-3 flex flex-col justify-center relative mt-20 md:mt-0">
           <div className="overflow-hidden mb-6 relative w-fit">
             <motion.h2 
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
+              initial={{ y: "100%", scale: 0.8 }}
+              animate={{ y: 0, scale: 1 }}
               transition={{ duration: 1, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
               className="text-black/60 font-mono text-sm tracking-[0.3em] uppercase font-bold"
             >
@@ -70,9 +70,9 @@ export default function Hero() {
           
           <div className="overflow-visible leading-[0.85] py-2 mb-4 w-full max-w-none">
             <motion.h1 
-              initial={{ y: "100%", rotateX: 45, opacity: 0 }}
-              animate={{ y: 0, rotateX: 0, opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
+              initial={{ y: "100%", scale: 0.5, rotateX: 45, opacity: 0 }}
+              animate={{ y: 0, scale: 1, rotateX: 0, opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.3, type: "spring", bounce: 0.6 }}
               className="font-display font-black text-[clamp(4rem,9vw,140px)] tracking-tight uppercase italic text-black pr-4 leading-[0.85] flex flex-wrap"
               style={{ transformPerspective: 1000 }}
             >
@@ -83,9 +83,9 @@ export default function Hero() {
           
           <div className="overflow-hidden leading-none pb-4">
             <motion.h1 
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1.2, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
+              initial={{ y: "100%", scale: 0.8 }}
+              animate={{ y: 0, scale: 1 }}
+              transition={{ duration: 1.0, delay: 0.4, type: "spring", bounce: 0.5 }}
               className="font-display font-light text-4xl md:text-6xl tracking-tight text-black/60 max-w-xl"
             >
               Creative <span className="text-black font-semibold">Agency</span>
@@ -115,3 +115,4 @@ export default function Hero() {
     </section>
   );
 }
+

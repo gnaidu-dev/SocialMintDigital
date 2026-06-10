@@ -52,10 +52,10 @@ export default function Services() {
               className="group relative border-b border-white/10 py-12 md:py-16 flex flex-col md:flex-row md:items-center justify-between"
               onMouseEnter={() => setHoveredIdx(idx)}
               onMouseLeave={() => setHoveredIdx(null)}
-              initial={{ opacity: 0, y: 100, rotateX: -20 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.76, 0, 0.24, 1] }}
+              initial={{ opacity: 0, y: 150, scale: 0.7, rotateX: -20 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+              viewport={{ once: false, margin: "-10%" }}
+              transition={{ duration: 0.8, delay: idx * 0.05, type: "spring", bounce: 0.4 }}
               style={{ transformPerspective: 1000 }}
             >
               {/* Animated Background layer */}
@@ -96,7 +96,7 @@ export default function Services() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-5xl w-full">
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
                       className="space-y-6 flex flex-col justify-center pr-8"
@@ -154,7 +154,7 @@ export default function Services() {
                     className="relative z-10 w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl origin-top mx-auto max-w-5xl"
                     initial={{ opacity: 0, height: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, height: "auto", scale: 1 }}
-                    viewport={{ once: true, margin: "-10%" }}
+                    viewport={{ once: false, margin: "-10%" }}
                     transition={{ duration: 1, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
                   >
                     <SEOSearchSimulation />
@@ -163,7 +163,7 @@ export default function Services() {
                   <div className="grid grid-cols-1 gap-12 text-[#F5F5F7] relative z-10 mx-auto max-w-5xl w-full">
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
                       className="space-y-6 flex flex-col justify-center"
@@ -179,7 +179,7 @@ export default function Services() {
                     
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.7, ease: [0.76, 0, 0.24, 1] }}
                       className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6"
@@ -211,7 +211,7 @@ export default function Services() {
                   <div className="grid grid-cols-1 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-4xl w-full">
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
                       className="space-y-6 flex flex-col items-center text-center px-4"
@@ -233,7 +233,7 @@ export default function Services() {
                   <div className="grid grid-cols-1 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-4xl w-full">
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
                       className="space-y-6 flex flex-col items-center text-center px-4"
@@ -251,7 +251,7 @@ export default function Services() {
                   <div className="grid grid-cols-1 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-4xl w-full">
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
                       className="space-y-6 flex flex-col items-center text-center px-4"
@@ -277,10 +277,10 @@ export default function Services() {
         </motion.div>
 
         <motion.div 
-           initial={{ opacity: 0, y: 50 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, margin: "-100px" }}
-           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+           initial={{ opacity: 0, scale: 0.6, rotateX: 15, y: 100 }}
+           whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
+           viewport={{ once: false, margin: "-100px" }}
+           transition={{ duration: 1.0, type: "spring", bounce: 0.5 }}
            className="relative mb-32 md:mb-48 z-10 mx-auto w-full"
         >
           {/* Elegant Ambient Spotlight */}
@@ -336,5 +336,6 @@ export default function Services() {
     </section>
   );
 }
+
 
 
