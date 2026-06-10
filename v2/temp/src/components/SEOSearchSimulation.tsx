@@ -5,7 +5,7 @@ import { Search, MapPin, Star, Phone } from 'lucide-react';
 export default function SEOSearchSimulation() {
   const [step, setStep] = useState(0);
   const [typedText, setTypedText] = useState("");
-  const targetText = "social mint digital";
+  const targetText = "vaishnavi cycle world";
 
   useEffect(() => {
     // Sequence
@@ -72,7 +72,7 @@ export default function SEOSearchSimulation() {
           <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
         </div>
         <div className="flex-1 bg-white rounded-md h-6 border border-gray-200 px-3 flex items-center text-[10px] text-gray-500 font-mono overflow-hidden">
-          {step < 2 ? 'https://www.google.com' : step === 4 ? 'https://www.socialmintdigital.com' : `https://www.google.com/search?q=${targetText.replace(/ /g, '+')}`}
+          {step < 2 ? 'https://www.google.com' : step === 4 ? 'https://www.srivaishnavicycleworld.com' : `https://www.google.com/search?q=${targetText.replace(/ /g, '+')}`}
         </div>
       </div>
 
@@ -140,23 +140,23 @@ export default function SEOSearchSimulation() {
                 animate={step === 3 ? { backgroundColor: '#f3f4f6' } : { backgroundColor: '#ffffff' }}
               >
                 <div className="flex items-center gap-2 text-xs text-gray-700 mb-1">
-                  <div className="w-6 h-6 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center font-bold text-[10px]">SMD</div>
+                  <div className="w-6 h-6 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center font-bold text-[10px]">SC</div>
                   <div className="flex flex-col">
-                    <span className="font-semibold text-gray-900 leading-tight">Sri social mint digital</span>
-                    <span className="text-gray-500 text-[10px] sm:text-xs">https://www.socialmintdigital.com</span>
+                    <span className="font-semibold text-gray-900 leading-tight">Sri Vaishnavi Cycle World</span>
+                    <span className="text-gray-500 text-[10px] sm:text-xs">https://www.srivaishnavicycleworld.com</span>
                   </div>
                 </div>
                 <h3 className="text-lg sm:text-xl text-[#1a0dab] group-hover:underline font-medium mt-1 leading-snug">
-                  Sri social mint digital - Premium Agencys
+                  Sri Vaishnavi Cycle World - Premium Bicycles
                 </h3>
                 <p className="text-[#4d5156] text-xs sm:text-sm mt-1 line-clamp-2">
-                  Find the perfect Agency for your needs. We offer a wide range of premium cycles, accessories, and professional repair services. 
+                  Find the perfect bicycle for your needs. We offer a wide range of premium cycles, accessories, and professional repair services. 
                 </p>
                 
                 {/* Simulated Sitelinks */}
                 <div className="mt-3 grid grid-cols-2 gap-2 w-full max-w-md">
                    <div>
-                     <div className="text-[#1a0dab] text-xs hover:underline cursor-pointer">Agencys Collection</div>
+                     <div className="text-[#1a0dab] text-xs hover:underline cursor-pointer">Bicycles Collection</div>
                      <div className="text-[#4d5156] text-[10px]">Explore our hybrid, mountain, and road cycles.</div>
                    </div>
                    <div>
@@ -176,10 +176,10 @@ export default function SEOSearchSimulation() {
                   </div>
                 </div>
                 <h3 className="text-lg text-[#1a0dab] font-medium leading-snug">
-                  Top 10 Agency Dealers in the Area - Justdial
+                  Top 10 Bicycle Dealers in the Area - Justdial
                 </h3>
                 <p className="text-[#4d5156] text-xs sm:text-sm mt-1">
-                  Find the best Agency stores near you. Compare prices, check reviews and ratings...
+                  Find the best bicycle stores near you. Compare prices, check reviews and ratings...
                 </p>
               </div>
 
@@ -189,11 +189,11 @@ export default function SEOSearchSimulation() {
                  <div className="flex gap-4">
                     <div className="w-16 h-16 bg-gray-100 rounded-md"></div>
                     <div className="flex-1">
-                       <h4 className="text-sm font-medium">Sri social mint digital</h4>
+                       <h4 className="text-sm font-medium">Sri Vaishnavi Cycle World</h4>
                        <div className="flex items-center text-xs text-gray-600 gap-1 mt-1">
                          <span className="font-medium">5.0</span>
                          <span className="text-yellow-400 flex"><Star className="w-3 h-3 fill-current"/><Star className="w-3 h-3 fill-current"/><Star className="w-3 h-3 fill-current"/><Star className="w-3 h-3 fill-current"/><Star className="w-3 h-3 fill-current"/></span>
-                         <span>(124) · Agency store</span>
+                         <span>(124) · Bicycle store</span>
                        </div>
                        <div className="text-xs text-gray-500 mt-1">Open ⋅ Closes 9 PM</div>
                     </div>
@@ -213,7 +213,7 @@ export default function SEOSearchSimulation() {
             >
               {/* Replace with the actual iframe to prove it's the site */}
               <iframe 
-                 src="https://www.socialmintdigital.com/" 
+                 src="https://www.srivaishnavicycleworld.com/" 
                  className="w-full h-full border-none"
                  title="Target Site"
               />
@@ -228,9 +228,9 @@ export default function SEOSearchSimulation() {
           animate={
             step === 0 ? { top: "80%", left: "50%", opacity: 0 } :
             step === 1 ? { top: "60%", left: "50%", opacity: 1 } : // Typing
-            step === 2 ? { top: "30%", left: "40%", opacity: 1, SMDale: 1 } : // Viewing results
-            step === 3 ? { top: "25%", left: "30%", opacity: 1, SMDale: 0.95 } : // Hover result
-            step === 4 ? { top: "25%", left: "30%", opacity: 0, SMDale: 0.9 } : // Click
+            step === 2 ? { top: "30%", left: "40%", opacity: 1, scale: 1 } : // Viewing results
+            step === 3 ? { top: "25%", left: "30%", opacity: 1, scale: 0.95 } : // Hover result
+            step === 4 ? { top: "25%", left: "30%", opacity: 0, scale: 0.9 } : // Click
             { opacity: 0 }
           }
           transition={{ duration: 1, ease: "easeInOut" }}

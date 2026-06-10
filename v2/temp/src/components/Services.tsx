@@ -71,7 +71,7 @@ export default function Services() {
                 <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500/80"></div>
               </div>
               <div className="mx-auto text-[10px] md:text-xs font-mono text-white/50 tracking-widest uppercase">
-                What We Built // socialmintdigital.com
+                What We Built // srivaishnavicycleworld.com
               </div>
               <div className="w-12"></div> {/* Spacer for centering */}
             </div>
@@ -79,9 +79,9 @@ export default function Services() {
             <div className="w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9] relative bg-black overflow-hidden group">
                <div className="absolute inset-0 pointer-events-none z-20 transition-opacity duration-700 bg-black/10 group-hover:bg-transparent" />
                <iframe 
-                 src="https://www.socialmintdigital.com/" 
+                 src="https://www.srivaishnavicycleworld.com/" 
                  className="absolute inset-0 w-full h-full border-none transition-transform duration-1000 ease-[0.76,0,0.24,1] scale-[1.01] group-hover:scale-100"
-                 title="Social Mint Digital"
+                 title="Sri Vaishnavi Cycle World"
                />
             </div>
           </div>
@@ -185,10 +185,10 @@ export default function Services() {
                            transition={{ duration: 10, ease: "linear" }}
                          >
                            <iframe 
-                             src="https://www.socialmintdigital.com/" 
+                             src="https://www.srivaishnavicycleworld.com/" 
                              loading="lazy"
                              className="w-full h-full border-none pointer-events-none transform scale-[0.85] origin-top opacity-80 group-hover:opacity-100 transition-opacity duration-700"
-                             title="Social Mint Digital Snapshot"
+                             title="Sri Vaishnavi Cycle World Snapshot"
                            />
                          </motion.div>
                       </div>
@@ -209,7 +209,7 @@ export default function Services() {
                     <SEOSearchSimulation />
                   </motion.div>
                   
-                  <div className="grid grid-cols-1 gap-12 text-[#F5F5F7] relative z-10 mx-auto max-w-5xl w-full">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-5xl w-full">
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -219,10 +219,10 @@ export default function Services() {
                     >
                       <h4 className="text-2xl md:text-3xl font-display font-medium tracking-tight text-[#F5F5F7] mb-2 uppercase tracking-wide bg-gradient-to-r from-[#AF52DE] to-[#007AFF] text-transparent bg-clip-text w-fit inline-block">Algorithm Architecture</h4>
                       <p className="text-sm md:text-base text-[#86868B] leading-relaxed">
-                        We engineered the platform's SEO architecture so robustly that <strong className="text-[#F5F5F7] font-medium">Social Mint Digital</strong> acts as a gravitational pull for local search real estate. Through high-authority domain presence, structured schema markups, and aggressively optimized Core Web Vitals, the brand achieves an impenetrable digital footprint.
+                        We engineered the platform's SEO architecture so robustly that <strong className="text-[#F5F5F7] font-medium">Sri Vaishnavi Cycle World</strong> acts as a gravitational pull for local search real estate. Through high-authority domain presence, structured schema markups, and aggressively optimized Core Web Vitals, the brand achieves an impenetrable digital footprint.
                       </p>
                       <p className="text-sm md:text-base text-[#86868B] leading-relaxed border-l-2 border-white/20 pl-4 py-1">
-                        The semantic indexing is so dominant that it aggressively captures adjacent permutations and highly competitive lateral queries—even ranking instantaneously for disparate branded searches like <strong className="text-[#F5F5F7] font-medium">"Social Mint Services"</strong>, leveraging overwhelming localized domain authority and precision keyword clustering.
+                        The semantic indexing is so dominant that it aggressively captures adjacent permutations and highly competitive lateral queries—even ranking instantaneously for disparate branded searches like <strong className="text-[#F5F5F7] font-medium">"Vaishnavi Honey"</strong>, leveraging overwhelming localized domain authority and precision keyword clustering.
                       </p>
                     </motion.div>
                     
@@ -231,24 +231,24 @@ export default function Services() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.7, ease: [0.76, 0, 0.24, 1] }}
-                      className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6"
+                      className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6"
                     >
                       {[
                         { label: "Local SERP Rank", value: "#1", color: "bg-gradient-to-r from-[#FF3B30] to-[#FF9500]" },
                         { label: "Intent Match", value: "99.8%", color: "bg-gradient-to-r from-[#AF52DE] to-[#FF2D55]" },
                         { label: "Indexing Speed", value: "< 2H", color: "bg-gradient-to-r from-[#34C759] to-[#007AFF]" },
-                        { label: "Lateral Query", value: "Dominant", sub: "e.g., 'Social Mint Services'", color: "bg-gradient-to-r from-[#007AFF] to-[#5856D6]" }
+                        { label: "Lateral Query", value: "Dominant", sub: "e.g., 'Vaishnavi Honey'", color: "bg-gradient-to-r from-[#007AFF] to-[#5856D6]" }
                       ].map((stat, i) => (
                         <motion.div 
                            key={i} 
                            whileHover={{ scale: 1.02, y: -5 }}
                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                           className="w-full h-full min-h-[160px] sm:min-h-[200px] lg:min-h-[240px] bg-[#0f0f0f] border border-white/5 rounded-2xl md:rounded-3xl p-4 sm:p-6 lg:p-6 flex flex-col justify-between items-start group hover:bg-[#151515] hover:border-white/10 transition-colors relative overflow-hidden"
+                           className="w-full aspect-square bg-[#0f0f0f] border border-white/5 rounded-2xl md:rounded-3xl p-4 sm:p-6 lg:p-8 flex flex-col justify-between items-start group hover:bg-[#151515] hover:border-white/10 transition-colors relative overflow-hidden"
                         >
                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                            <div className="text-[9px] sm:text-[10px] md:text-xs text-[#86868B] uppercase tracking-widest font-mono relative z-10 w-full">{stat.label}</div>
                            <div className="relative z-10 w-full">
-                             <div className={`text-[clamp(1.5rem,4vw,2.5rem)] lg:text-[clamp(1.75rem,2.5vw,3rem)] leading-none font-display font-bold tracking-tight text-transparent bg-clip-text inline-block break-words w-full ${stat.color}`}>
+                             <div className={`text-[clamp(1.5rem,4vw,3.5rem)] lg:text-[clamp(2rem,3vw,4rem)] leading-none font-display font-bold tracking-tight text-transparent bg-clip-text inline-block ${stat.color}`}>
                                {stat.value}
                              </div>
                              {stat.sub && <div className="text-[8px] sm:text-[9px] md:text-[10px] text-[#86868B]/70 mt-1 md:mt-2 font-mono uppercase tracking-widest">{stat.sub}</div>}
