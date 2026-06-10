@@ -7,7 +7,7 @@ const TUNNEL_WORDS = [
   "ACCELERATE",
   "GROWTH",
   "FUTURE",
-  "SOCIAL MINT",
+  "SOCIAL MINT DIGITAL",
 ];
 
 export default function Loader({ onComplete }: { onComplete: () => void; key?: Key }) {
@@ -135,6 +135,14 @@ export default function Loader({ onComplete }: { onComplete: () => void; key?: K
              <span className="bg-gradient-to-r from-brand via-accent-3 to-accent-1 text-transparent bg-clip-text pb-2 inline-block">
                MINT
              </span>
+           </motion.span>
+           <motion.span 
+             animate={{ opacity: isOpening ? 0 : 1, filter: isOpening ? 'blur(10px)' : 'blur(0px)', scale: isOpening ? 2 : 1, x: isOpening ? 200 : 0, y: isOpening ? -20 : 0 }} 
+             transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.1 }} 
+             className="ml-2 sm:ml-4 inline-block relative z-10 text-white"
+             style={{ transformOrigin: "center center" }}
+           >
+             DIGITAL
            </motion.span>
         </div>
         
