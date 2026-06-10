@@ -76,8 +76,8 @@ export default function Hero() {
               className="font-display font-black text-[clamp(4rem,9vw,140px)] tracking-tight uppercase italic text-black pr-4 leading-[0.85] flex flex-wrap"
               style={{ transformPerspective: 1000 }}
             >
-              <span className="block mr-3 md:mr-6 lg:mr-8 text-black pb-2">Social</span> 
-              <span className="bg-gradient-to-br from-[#FF2D55] via-[#AF52DE] to-[#007AFF] text-transparent bg-clip-text block pb-4 pr-6 shrink-0">Mint</span>
+              <span className="block mr-3 md:mr-6 lg:mr-8 text-black pb-2">Social Mint</span> 
+              <span className="bg-gradient-to-br from-[#FF2D55] via-[#AF52DE] to-[#007AFF] text-transparent bg-clip-text block pb-4 pr-6 shrink-0">Digital</span>
             </motion.h1>
           </div>
           
@@ -88,7 +88,7 @@ export default function Hero() {
               transition={{ duration: 1.2, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
               className="font-display font-light text-4xl md:text-6xl tracking-tight text-black/60 max-w-xl"
             >
-              Digital <span className="text-black font-semibold">Agency</span>
+              Creative <span className="text-black font-semibold">Agency</span>
             </motion.h1>
           </div>
 
