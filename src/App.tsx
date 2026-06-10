@@ -6,7 +6,6 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
 import SmoothScroll from './components/SmoothScroll';
-import Cursor from './components/Cursor';
 import Loader from './components/Loader';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -19,7 +18,6 @@ export default function App() {
 
   return (
     <SmoothScroll>
-      <Cursor />
       <GridBackground />
       <FloatingElements />
       

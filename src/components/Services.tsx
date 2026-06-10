@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef, useState } from 'react';
 import SEOSearchSimulation from './SEOSearchSimulation';
+import CampaignSimulator from './CampaignSimulator';
 
 const SERVICES = [
   {
@@ -38,7 +39,8 @@ export default function Services() {
 
   return (
     <section ref={containerRef} className="relative w-full py-32 md:py-48 bg-bg min-h-screen flex flex-col justify-center">
-      <div className="max-w-7xl mx-auto px-8 w-full"><motion.div style={{ y: titleY }} className="mb-24">
+      <div className="max-w-7xl mx-auto px-8 w-full">
+        <motion.div style={{ y: titleY }} className="mb-24">
           <h2 className="text-[10px] uppercase tracking-[0.4em] text-[#86868B] mb-4 font-bold">Core Competencies</h2>
           <div className="font-display text-[clamp(2.5rem,8vw,90px)] md:text-[clamp(3.5rem,8vw,90px)] font-bold tracking-tight leading-[0.85] pr-4 bg-gradient-to-r from-[#FF2D55] via-[#AF52DE] to-[#007AFF] text-transparent bg-clip-text inline-block pb-4">
             Our Arsenal.
@@ -205,29 +207,12 @@ export default function Services() {
                              {stat.sub && <div className="text-[8px] sm:text-[9px] md:text-[10px] text-[#86868B]/70 mt-1 md:mt-2 font-mono uppercase tracking-widest">{stat.sub}</div>}
                            </div>
                         </motion.div>
-                      )              )}
-              {srv.id === "04" && (
-                <div className="flex flex-col gap-12 mt-16 md:mt-24 w-full">
-                  <div className="grid grid-cols-1 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-4xl w-full">
-                    <motion.div 
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
-                      className="space-y-6 flex flex-col items-center text-center px-4"
-                    >
-                      <h4 className="text-2xl md:text-4xl font-display font-medium tracking-tight text-[#F5F5F7] uppercase tracking-wide bg-gradient-to-r from-[#FF9500] to-[#FF2D55] text-transparent bg-clip-text inline-block pb-2">Omnichannel Domination</h4>
-                      <p className="text-sm md:text-lg text-[#86868B] leading-relaxed max-w-2xl">
-                        We deploy aggressive, data-backed ad campaigns across all major networks. By hyper-targeting your exact demographic and relentlessly optimizing creative assets, we ensure your message converts at the highest possible margin.
-                      </p>
+                      ))}
                     </motion.div>
                   </div>
                 </div>
               )}
-            </motion.div>
-                  </div>
-                </div>
-              )}
+
               {srv.id === "03" && (
                 <div className="flex flex-col gap-12 mt-16 md:mt-24 w-full">
                   <div className="grid grid-cols-1 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-4xl w-full">
@@ -242,31 +227,42 @@ export default function Services() {
                       <p className="text-sm md:text-lg text-[#86868B] leading-relaxed max-w-2xl">
                         Lead generation treated as a precise science. We construct high-velocity conversion funnels that systematically capture market demand. By aligning behavioral psychology with frictionless UX, we turn passive traffic into qualified pipelines that scale predictably.
                       </p>
-                      
                     </motion.div>
                   </div>
-                </div>              )}
+                </div>
+              )}
+
               {srv.id === "04" && (
                 <div className="flex flex-col gap-12 mt-16 md:mt-24 w-full">
-                  <div className="grid grid-cols-1 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-4xl w-full">
+                  <div className="grid grid-cols-1 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-6xl w-full">
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
-                      className="space-y-6 flex flex-col items-center text-center px-4"
+                      className="space-y-6 flex flex-col items-center text-center px-4 mb-8"
                     >
                       <h4 className="text-2xl md:text-4xl font-display font-medium tracking-tight text-[#F5F5F7] uppercase tracking-wide bg-gradient-to-r from-[#FF9500] to-[#FF2D55] text-transparent bg-clip-text inline-block pb-2">Omnichannel Domination</h4>
                       <p className="text-sm md:text-lg text-[#86868B] leading-relaxed max-w-2xl">
                         We deploy aggressive, data-backed ad campaigns across all major networks. By hyper-targeting your exact demographic and relentlessly optimizing creative assets, we ensure your message converts at the highest possible margin.
                       </p>
                     </motion.div>
+                    
+                    <motion.div
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.4, type: "spring", bounce: 0.2 }}
+                      className="w-full"
+                    >
+                      <CampaignSimulator />
+                    </motion.div>
                   </div>
                 </div>
               )}
             </motion.div>
           ))}
-        
+        </div>
         
         {/* Website Showcase with Elegant Motion Spotlight */}
         <motion.div style={{ y: titleY }} className="mb-16 mt-8">
@@ -320,8 +316,6 @@ export default function Services() {
           </div>
         </motion.div>
 
-        
-      </div>
       </div>
 
       {/* Floating abstract visual based on hover */}
@@ -336,6 +330,3 @@ export default function Services() {
     </section>
   );
 }
-
-
-
