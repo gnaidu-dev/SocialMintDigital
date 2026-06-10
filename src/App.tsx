@@ -9,7 +9,6 @@ import SmoothScroll from './components/SmoothScroll';
 import Cursor from './components/Cursor';
 import Loader from './components/Loader';
 import Hero from './components/Hero';
-import Marquee from './components/Marquee';
 import Services from './components/Services';
 import Footer from './components/Footer';
 import GridBackground from './components/GridBackground';
@@ -30,9 +29,7 @@ export default function App() {
 
       <main className="relative w-full min-h-screen text-white select-none overflow-hidden">
         <Hero />
-        <Marquee text="Digital Dominance" velocity={15} />
         <Services />
-        <Marquee text="Scale Relentlessly" velocity={15} direction="right" />
         <Footer />
       </main>
     </SmoothScroll>

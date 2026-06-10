@@ -15,8 +15,13 @@ const SERVICES = [
   },
   {
     id: "03",
-    title: "LEAD GEN",
+    title: "LEAD GENERATION",
     description: "Architecting high-conversion pipelines that systematically acquire market share.",
+  },
+  {
+    id: "04",
+    title: "DIGITAL MARKETING",
+    description: "Multi-channel advertising campaigns designed to maximize ROI and scale brand awareness.",
   }
 ];
 
@@ -33,61 +38,7 @@ export default function Services() {
 
   return (
     <section ref={containerRef} className="relative w-full py-32 md:py-48 bg-bg min-h-screen flex flex-col justify-center">
-      <div className="max-w-7xl mx-auto px-8 w-full">
-        
-        {/* Website Showcase with Elegant Motion Spotlight */}
-        <motion.div style={{ y: titleY }} className="mb-16 mt-8">
-          <h2 className="text-[10px] uppercase tracking-[0.4em] text-[#86868B] mb-4 font-bold">Featured Case Study</h2>
-          <div className="font-display text-[clamp(2.5rem,8vw,90px)] md:text-[clamp(3.5rem,8vw,90px)] font-bold tracking-tight leading-[0.85] pr-4 bg-gradient-to-r from-[#FF9500] to-[#FF2D55] text-transparent bg-clip-text inline-block pb-4">
-            What We Built.
-          </div>
-        </motion.div>
-
-        <motion.div 
-           initial={{ opacity: 0, y: 50 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, margin: "-100px" }}
-           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-           className="relative mb-32 md:mb-48 z-10 mx-auto w-full"
-        >
-          {/* Elegant Ambient Spotlight */}
-          <motion.div 
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-brand/20 blur-[100px] pointer-events-none rounded-[100%]"
-            animate={{ 
-              opacity: [0.3, 0.5, 0.3],
-              scale: [0.9, 1.05, 0.9]
-            }}
-            transition={{
-              duration: 8, repeat: Infinity, ease: "easeInOut" 
-            }}
-          />
-          
-          {/* Core Content Container */}
-          <div className="relative z-10 w-full rounded-2xl md:rounded-[2rem] overflow-hidden bg-black shadow-[0_0_100px_rgba(16,185,129,0.15)] border border-white/10 ring-1 ring-white/5 mx-auto max-w-6xl">
-            <div className="flex items-center px-4 md:px-6 py-3 md:py-4 border-b border-white/10 bg-[#0a0a0a]">
-              <div className="flex gap-2 relative z-10">
-                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500/80"></div>
-                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500/80"></div>
-                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500/80"></div>
-              </div>
-              <div className="mx-auto text-[10px] md:text-xs font-mono text-white/50 tracking-widest uppercase">
-                What We Built // srivaishnavicycleworld.com
-              </div>
-              <div className="w-12"></div> {/* Spacer for centering */}
-            </div>
-
-            <div className="w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9] relative bg-black overflow-hidden group">
-               <div className="absolute inset-0 pointer-events-none z-20 transition-opacity duration-700 bg-black/10 group-hover:bg-transparent" />
-               <iframe 
-                 src="https://www.srivaishnavicycleworld.com/" 
-                 className="absolute inset-0 w-full h-full border-none transition-transform duration-1000 ease-[0.76,0,0.24,1] scale-[1.01] group-hover:scale-100"
-                 title="Sri Vaishnavi Cycle World"
-               />
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div style={{ y: titleY }} className="mb-24">
+      <div className="max-w-7xl mx-auto px-8 w-full"><motion.div style={{ y: titleY }} className="mb-24">
           <h2 className="text-[10px] uppercase tracking-[0.4em] text-[#86868B] mb-4 font-bold">Core Competencies</h2>
           <div className="font-display text-[clamp(2.5rem,8vw,90px)] md:text-[clamp(3.5rem,8vw,90px)] font-bold tracking-tight leading-[0.85] pr-4 bg-gradient-to-r from-[#FF2D55] via-[#AF52DE] to-[#007AFF] text-transparent bg-clip-text inline-block pb-4">
             Our Arsenal.
@@ -254,8 +205,26 @@ export default function Services() {
                              {stat.sub && <div className="text-[8px] sm:text-[9px] md:text-[10px] text-[#86868B]/70 mt-1 md:mt-2 font-mono uppercase tracking-widest">{stat.sub}</div>}
                            </div>
                         </motion.div>
-                      ))}
+                      )              )}
+              {srv.id === "04" && (
+                <div className="flex flex-col gap-12 mt-16 md:mt-24 w-full">
+                  <div className="grid grid-cols-1 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-4xl w-full">
+                    <motion.div 
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
+                      className="space-y-6 flex flex-col items-center text-center px-4"
+                    >
+                      <h4 className="text-2xl md:text-4xl font-display font-medium tracking-tight text-[#F5F5F7] uppercase tracking-wide bg-gradient-to-r from-[#FF9500] to-[#FF2D55] text-transparent bg-clip-text inline-block pb-2">Omnichannel Domination</h4>
+                      <p className="text-sm md:text-lg text-[#86868B] leading-relaxed max-w-2xl">
+                        We deploy aggressive, data-backed ad campaigns across all major networks. By hyper-targeting your exact demographic and relentlessly optimizing creative assets, we ensure your message converts at the highest possible margin.
+                      </p>
                     </motion.div>
+                  </div>
+                </div>
+              )}
+            </motion.div>
                   </div>
                 </div>
               )}
@@ -276,11 +245,83 @@ export default function Services() {
                       
                     </motion.div>
                   </div>
+                </div>              )}
+              {srv.id === "04" && (
+                <div className="flex flex-col gap-12 mt-16 md:mt-24 w-full">
+                  <div className="grid grid-cols-1 gap-8 text-[#F5F5F7] relative z-10 mx-auto max-w-4xl w-full">
+                    <motion.div 
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
+                      className="space-y-6 flex flex-col items-center text-center px-4"
+                    >
+                      <h4 className="text-2xl md:text-4xl font-display font-medium tracking-tight text-[#F5F5F7] uppercase tracking-wide bg-gradient-to-r from-[#FF9500] to-[#FF2D55] text-transparent bg-clip-text inline-block pb-2">Omnichannel Domination</h4>
+                      <p className="text-sm md:text-lg text-[#86868B] leading-relaxed max-w-2xl">
+                        We deploy aggressive, data-backed ad campaigns across all major networks. By hyper-targeting your exact demographic and relentlessly optimizing creative assets, we ensure your message converts at the highest possible margin.
+                      </p>
+                    </motion.div>
+                  </div>
                 </div>
               )}
             </motion.div>
           ))}
-        </div>
+        
+        
+        {/* Website Showcase with Elegant Motion Spotlight */}
+        <motion.div style={{ y: titleY }} className="mb-16 mt-8">
+          <h2 className="text-[10px] uppercase tracking-[0.4em] text-[#86868B] mb-4 font-bold">Featured Case Study</h2>
+          <div className="font-display text-[clamp(2.5rem,8vw,90px)] md:text-[clamp(3.5rem,8vw,90px)] font-bold tracking-tight leading-[0.85] pr-4 bg-gradient-to-r from-[#FF9500] to-[#FF2D55] text-transparent bg-clip-text inline-block pb-4">
+            What We Built.
+          </div>
+        </motion.div>
+
+        <motion.div 
+           initial={{ opacity: 0, y: 50 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, margin: "-100px" }}
+           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+           className="relative mb-32 md:mb-48 z-10 mx-auto w-full"
+        >
+          {/* Elegant Ambient Spotlight */}
+          <motion.div 
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-brand/20 blur-[100px] pointer-events-none rounded-[100%]"
+            animate={{ 
+              opacity: [0.3, 0.5, 0.3],
+              scale: [0.9, 1.05, 0.9]
+            }}
+            transition={{
+              duration: 8, repeat: Infinity, ease: "easeInOut" 
+            }}
+          />
+          
+          {/* Core Content Container */}
+          <div className="relative z-10 w-full rounded-2xl md:rounded-[2rem] overflow-hidden bg-black shadow-[0_0_100px_rgba(16,185,129,0.15)] border border-white/10 ring-1 ring-white/5 mx-auto max-w-6xl">
+            <div className="flex items-center px-4 md:px-6 py-3 md:py-4 border-b border-white/10 bg-[#0a0a0a]">
+              <div className="flex gap-2 relative z-10">
+                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="mx-auto text-[10px] md:text-xs font-mono text-white/50 tracking-widest uppercase">
+                What We Built // srivaishnavicycleworld.com
+              </div>
+              <div className="w-12"></div> {/* Spacer for centering */}
+            </div>
+
+            <div className="w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9] relative bg-black overflow-hidden group">
+               <div className="absolute inset-0 pointer-events-none z-20 transition-opacity duration-700 bg-black/10 group-hover:bg-transparent" />
+               <iframe 
+                 src="https://www.srivaishnavicycleworld.com/" 
+                 className="absolute inset-0 w-full h-full border-none transition-transform duration-1000 ease-[0.76,0,0.24,1] scale-[1.01] group-hover:scale-100"
+                 title="Sri Vaishnavi Cycle World"
+               />
+            </div>
+          </div>
+        </motion.div>
+
+        
+      </div>
       </div>
 
       {/* Floating abstract visual based on hover */}
@@ -295,3 +336,5 @@ export default function Services() {
     </section>
   );
 }
+
+
