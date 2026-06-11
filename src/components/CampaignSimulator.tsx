@@ -12,8 +12,14 @@ export default function CampaignSimulator() {
   const mouseY = useMotionValue(0);
   const rotateX = useTransform(mouseY, [-300, 300], [7, -7]);
   const rotateY = useTransform(mouseX, [-400, 400], [-7, 7]);
+  const [hasHover, setHasHover] = useState(false);
+
+  useEffect(() => {
+    setHasHover(window.matchMedia('(hover: hover)').matches);
+  }, []);
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (!hasHover) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -24,6 +30,7 @@ export default function CampaignSimulator() {
   }
 
   function handleMouseLeave() {
+    if (!hasHover) return;
     animate(mouseX, 0, { type: "spring", stiffness: 200, damping: 20 });
     animate(mouseY, 0, { type: "spring", stiffness: 200, damping: 20 });
   }

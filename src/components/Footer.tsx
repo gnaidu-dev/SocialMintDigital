@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
+import Magnetic from './Magnetic';
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -74,14 +75,16 @@ export default function Footer() {
             </div>
           </div>
           
-          <motion.a 
-            href="mailto:info@socialmintdigital.com"
-            className="mt-8 bg-gradient-to-r from-accent-1 to-accent-3 text-white px-6 py-4 text-[12px] font-bold uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 w-full text-center block"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Initiate Contact
-          </motion.a>
+          <Magnetic>
+            <motion.a 
+              href="mailto:info@socialmintdigital.com"
+              className="mt-8 bg-gradient-to-r from-accent-1 to-accent-3 text-white px-6 py-4 text-[12px] font-bold uppercase tracking-widest hover:opacity-80 transition-opacity duration-300 w-full text-center block"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Initiate Contact
+            </motion.a>
+          </Magnetic>
         </div>
       </div>
       

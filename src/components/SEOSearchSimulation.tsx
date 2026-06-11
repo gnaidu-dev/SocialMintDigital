@@ -67,8 +67,14 @@ export default function SEOSearchSimulation() {
   const mouseY = useMotionValue(0);
   const rotateX = useTransform(mouseY, [-300, 300], [5, -5]);
   const rotateY = useTransform(mouseX, [-450, 450], [-5, 5]);
+  const [hasHover, setHasHover] = useState(false);
+
+  useEffect(() => {
+    setHasHover(window.matchMedia('(hover: hover)').matches);
+  }, []);
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (!hasHover) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -79,6 +85,7 @@ export default function SEOSearchSimulation() {
   }
 
   function handleMouseLeave() {
+    if (!hasHover) return;
     animate(mouseX, 0, { type: "spring", stiffness: 200, damping: 20 });
     animate(mouseY, 0, { type: "spring", stiffness: 200, damping: 20 });
   }
