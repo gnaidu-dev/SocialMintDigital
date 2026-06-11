@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import Magnetic from './Magnetic';
+import RootBleed from './RootBleed';
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -19,14 +20,14 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.015,
+        staggerChildren: 0.04,
         delayChildren: 0.2
       }
     }
   };
 
   const charAnim = {
-    hidden: { y: "110%", rotateX: 60, scale: 0.7, opacity: 0 },
+    hidden: { y: "100%", rotateX: 60, scale: 0.8, opacity: 0 },
     visible: {
       y: 0,
       rotateX: 0,
@@ -41,6 +42,7 @@ export default function Hero() {
       ref={containerRef}
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#e6d5f7] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.6)_0%,transparent_100%)]"
     >
+      <RootBleed />
       {/* Dynamic drifting blobs - GenZ liquid motion */}
       <motion.div 
         className="absolute top-[-10%] right-[-10%] w-[65vw] h-[65vw] max-w-[800px] bg-white opacity-[0.55] rounded-full blur-[100px] pointer-events-none"

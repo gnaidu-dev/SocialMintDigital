@@ -35,3 +35,24 @@ canvas.fixed,
   width: 0px;
   background: transparent;
 }
+
+/* Responsive adjustments for RootBleed SVG to ensure consistent branch visibility across viewports */
+.vein-container svg {
+  transform-origin: center center;
+}
+
+@media (max-width: 640px) {
+  .vein-container svg {
+    width: 280% !important;
+    left: -90% !important;
+    height: 100% !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .vein-container svg {
+    width: 180% !important;
+    left: -40% !important;
+    height: 100% !important;
+  }
+}

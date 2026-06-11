@@ -58,64 +58,64 @@ const nodes = [
 const strokeWidths = [2.5, 2, 1.4, 1.1, 0.9, 0.7, 2, 1.4, 1.1, 0.9, 0.7, 1.4, 1.4];
 const strokeOpacity = [1, 1, 0.65, 0.75, 0.55, 0.22, 1, 0.65, 0.75, 0.55, 0.22, 0.50, 0.50];
 
-function VeinSVG({ stroke }: { stroke: string }) {
+function VeinSVG() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1440 900"
       preserveAspectRatio="xMidYMid slice"
       className="absolute inset-0 w-full h-full"
+      style={{
+        filter: 'drop-shadow(0 0 12px rgba(128, 0, 255, 0.45)) drop-shadow(0 0 4px rgba(255, 42, 133, 0.35))'
+      }}
     >
       <defs>
-        <linearGradient id={`rg-t-${stroke}`} x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%"   stopColor="#c084fc" stopOpacity="0.80" />
-          <stop offset="35%"  stopColor="#a855f7" stopOpacity="0.45" />
-          <stop offset="75%"  stopColor="#7c3aed" stopOpacity="0.15" />
-          <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.04" />
+        <linearGradient id="glow-t" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stopColor="#FF2A85" />
+          <stop offset="50%"  stopColor="#8000FF" />
+          <stop offset="100%" stopColor="#00FFC2" />
         </linearGradient>
-        <linearGradient id={`rg-l-${stroke}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%"   stopColor="#d8b4fe" stopOpacity="0.65" />
-          <stop offset="55%"  stopColor="#a855f7" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.03" />
+        <linearGradient id="glow-l" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stopColor="#8000FF" />
+          <stop offset="100%" stopColor="#FF2A85" />
         </linearGradient>
-        <linearGradient id={`rg-r-${stroke}`} x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%"   stopColor="#d8b4fe" stopOpacity="0.65" />
-          <stop offset="55%"  stopColor="#a855f7" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.03" />
+        <linearGradient id="glow-r" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stopColor="#8000FF" />
+          <stop offset="100%" stopColor="#00FFC2" />
         </linearGradient>
-        <linearGradient id={`rg-d-${stroke}`} x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%"   stopColor="#c084fc" stopOpacity="0.18" />
-          <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.03" />
+        <linearGradient id="glow-d" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stopColor="#00FFC2" />
+          <stop offset="100%" stopColor="#8000FF" />
         </linearGradient>
       </defs>
 
       {/* Primary paths — gradient strokes */}
       {dValues.map((d, i) => {
-        const gradId = i === 0 ? `rg-t-${stroke}`
-          : i < 6  ? `rg-l-${stroke}`
-          : i < 11 ? `rg-r-${stroke}`
-          : `rg-d-${stroke}`;
+        const gradId = i === 0 ? "glow-t"
+          : i < 6  ? "glow-l"
+          : i < 11 ? "glow-r"
+          : "glow-d";
         return (
           <path
             key={i}
             d={d}
             stroke={`url(#${gradId})`}
-            strokeWidth={strokeWidths[i]}
+            strokeWidth={strokeWidths[i] * 1.3}
             strokeLinecap="round"
             fill="none"
-            opacity={strokeOpacity[i]}
+            opacity={Math.min(1, strokeOpacity[i] * 1.3)}
           />
         );
       })}
 
       {/* Hairline tendrils */}
       {hairlines.map((h, i) => (
-        <path key={i} d={h.d} stroke="#c084fc" strokeWidth={h.w} fill="none" opacity={h.o} />
+        <path key={i} d={h.d} stroke="#8000FF" strokeWidth={h.w * 1.3} fill="none" opacity={Math.min(0.9, h.o * 1.8)} />
       ))}
 
       {/* Junction nodes */}
       {nodes.map((n, i) => (
-        <circle key={i} cx={n.cx} cy={n.cy} r={n.r} fill="#e9d5ff" opacity={n.o} />
+        <circle key={i} cx={n.cx} cy={n.cy} r={n.r * 1.4} fill="#00FFC2" opacity={Math.min(1, n.o * 1.8)} />
       ))}
     </svg>
   );
@@ -123,42 +123,12 @@ function VeinSVG({ stroke }: { stroke: string }) {
 
 export default function RootBleed() {
   return (
-    <>
-      {/*
-        Layer 1 — multiply
-        On light Hero bg: purple × lavender = deeper purple veins (visible, integrated)
-        On dark bg: dark × dark ≈ black (invisible, no interference)
-      */}
-      <div
-        className="fixed inset-0 pointer-events-none select-none overflow-hidden"
-        style={{ zIndex: 30, mixBlendMode: 'multiply', willChange: 'transform' }}
-        aria-hidden="true"
-      >
-        <VeinSVG stroke="m" />
-      </div>
-
-      {/*
-        Layer 2 — screen
-        On dark Services/Footer bg: near-black + purple = glowing lavender (vivid)
-        On light Hero bg: light + purple ≈ near-white (barely perceptible, Hero is already lavender)
-      */}
-      <div
-        className="fixed inset-0 pointer-events-none select-none overflow-hidden"
-        style={{ zIndex: 30, mixBlendMode: 'screen', willChange: 'transform', opacity: 0.25 }}
-        aria-hidden="true"
-      >
-        {/* Ambient top bloom — screen makes it glow on dark, invisible on light */}
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2"
-          style={{
-            width: '600px',
-            height: '300px',
-            background: 'radial-gradient(ellipse at 50% 0%, rgba(192,132,252,0.22) 0%, rgba(168,85,247,0.07) 50%, transparent 80%)',
-            filter: 'blur(32px)',
-          }}
-        />
-        <VeinSVG stroke="s" />
-      </div>
-    </>
+    <div
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden"
+      style={{ zIndex: 15, mixBlendMode: 'normal', willChange: 'transform' }}
+      aria-hidden="true"
+    >
+      <VeinSVG />
+    </div>
   );
 }

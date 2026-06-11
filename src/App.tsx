@@ -12,7 +12,6 @@ import Services from './components/Services';
 import Footer from './components/Footer';
 import GridBackground from './components/GridBackground';
 import FloatingElements from './components/FloatingElements';
-import RootBleed from './components/RootBleed';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -25,8 +24,6 @@ export default function App() {
       <AnimatePresence mode="wait">
         {loading && <Loader key="loader" onComplete={() => setLoading(false)} />}
       </AnimatePresence>
-
-      <RootBleed />
 
       <main className="relative w-full min-h-screen text-white select-none overflow-hidden">
         <Hero />
