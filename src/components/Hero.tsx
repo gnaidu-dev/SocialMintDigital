@@ -102,7 +102,10 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               className="font-display font-black text-[clamp(2.5rem,10vw,140px)] tracking-tight uppercase italic text-black pr-4 leading-[0.85] flex flex-wrap"
-              style={{ transformPerspective: 1000 }}
+              style={{ 
+                transformPerspective: 1000,
+                filter: 'drop-shadow(0 4px 30px rgba(128, 0, 255, 0.35)) drop-shadow(0 0 10px rgba(255, 42, 133, 0.25))'
+              }}
             >
               <span className="flex mr-3 md:mr-6 lg:mr-8 pb-2">
                 {"Social Mint".split("").map((c, i) => (

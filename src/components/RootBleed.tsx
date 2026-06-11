@@ -125,7 +125,7 @@ export default function RootBleed() {
   return (
     <div
       className="absolute inset-0 pointer-events-none select-none overflow-hidden"
-      style={{ zIndex: 15, mixBlendMode: 'normal', willChange: 'transform' }}
+      style={{ zIndex: 2, mixBlendMode: 'normal', willChange: 'transform' }}
       aria-hidden="true"
     >
       <VeinSVG />
