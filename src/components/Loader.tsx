@@ -75,43 +75,25 @@ export default function Loader({ onComplete }: { onComplete: () => void; key?: K
         style={{ WebkitMaskImage: maskImage, maskImage: maskImage }}
       />
       
-      {/* Tunnel Layer */}
+      {/* Tunnel Layer (Text removed per request) */}
       <motion.div 
         className="absolute z-[-1] pointer-events-none flex items-center justify-center"
         style={{ left: xPos, top: yPos }}
-      >
-        {isOpening && TUNNEL_WORDS.map((word, i) => (
-          <motion.div
-            key={i}
-            className="absolute font-display font-black uppercase text-center whitespace-nowrap will-change-transform"
-            style={{ 
-              WebkitTextStroke: `2px rgba(16, 185, 129, ${1 - i * 0.15})`, 
-              color: 'transparent',
-              fontSize: '5vw',
-              transformOrigin: 'center center'
-            }}
-            initial={{ scale: 0.01, opacity: 0, x: "-50%", y: "-50%", rotate: -2 + (i % 2) * 5 }}
-            animate={{ scale: 15, opacity: [0, 1, 0], rotate: 0 }}
-            transition={{ duration: 1.4, delay: i * 0.12, ease: [0.5, 0, 0.2, 1] }}
-          >
-            {word}
-          </motion.div>
-        ))}
-      </motion.div>
+      />
 
-      <div className="relative z-10 flex flex-col items-center gap-8 overflow-visible">
-        <div className="font-display text-[clamp(2.5rem,8vw,6rem)] tracking-tighter font-black uppercase text-white italic flex items-center justify-center">
+      <div className="relative z-10 flex flex-col items-center gap-10 overflow-visible">
+        <div className="font-display text-[clamp(3.5rem,10vw,9rem)] tracking-tight font-black uppercase text-white italic flex items-center justify-center">
            <motion.span 
-             animate={{ opacity: isOpening ? 0 : 1, filter: isOpening ? 'blur(10px)' : 'blur(0px)', scale: isOpening ? 2 : 1, x: isOpening ? -100 : 0, y: isOpening ? -50 : 0 }} 
+             animate={{ opacity: isOpening ? 0 : 1, x: isOpening ? -200 : 0, y: isOpening ? -50 : 0 }} 
              transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
              className="inline-block relative z-10"
              style={{ transformOrigin: "center center" }}
            >
-             S
+             L
            </motion.span>
            <motion.span 
              ref={oRef} 
-             className="relative z-20 inline-block px-[2px] text-brand will-change-transform"
+             className="relative z-20 inline-block px-[1px] text-brand will-change-transform"
              animate={{ opacity: isOpening ? 0 : 1 }}
              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
              style={{ transformOrigin: "center 55%", scale: oScale }}
@@ -119,30 +101,12 @@ export default function Loader({ onComplete }: { onComplete: () => void; key?: K
              O
            </motion.span>
            <motion.span 
-             animate={{ opacity: isOpening ? 0 : 1, filter: isOpening ? 'blur(10px)' : 'blur(0px)', scale: isOpening ? 2 : 1, x: isOpening ? 100 : 0, y: isOpening ? -50 : 0 }} 
+             animate={{ opacity: isOpening ? 0 : 1, x: isOpening ? 200 : 0, y: isOpening ? -50 : 0 }} 
              transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-             className="inline-block relative z-10"
+             className="inline-block relative z-10 text-white"
              style={{ transformOrigin: "center center" }}
            >
-             CIAL
-           </motion.span>
-           <motion.span 
-             animate={{ opacity: isOpening ? 0 : 1, filter: isOpening ? 'blur(10px)' : 'blur(0px)', scale: isOpening ? 2 : 1, x: isOpening ? 150 : 0, y: isOpening ? 50 : 0 }} 
-             transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.05 }} 
-             className="ml-4 md:ml-8 inline-block relative z-10"
-             style={{ transformOrigin: "center center" }}
-           >
-             <span className="bg-gradient-to-r from-brand via-accent-3 to-accent-1 text-transparent bg-clip-text pb-2 inline-block">
-               MINT
-             </span>
-           </motion.span>
-           <motion.span 
-             animate={{ opacity: isOpening ? 0 : 1, filter: isOpening ? 'blur(10px)' : 'blur(0px)', scale: isOpening ? 2 : 1, x: isOpening ? 200 : 0, y: isOpening ? -20 : 0 }} 
-             transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.1 }} 
-             className="ml-4 md:ml-8 inline-block relative z-10 text-white"
-             style={{ transformOrigin: "center center" }}
-           >
-             DIGITAL
+             ADING
            </motion.span>
         </div>
         
@@ -152,10 +116,10 @@ export default function Loader({ onComplete }: { onComplete: () => void; key?: K
            transition={{ duration: 1.0, ease: [0.8, 0, 0.1, 1] }}
         >
           <motion.div 
-            className="absolute top-0 left-0 h-full bg-gradient-to-r from-brand to-accent-1"
-            initial={{ width: "0%" }}
-            animate={{ width: `${progress}%` }}
-            transition={{ ease: "linear", duration: 0.2 }}
+             className="absolute top-0 left-0 h-full bg-gradient-to-r from-brand to-accent-1"
+             initial={{ width: "0%" }}
+             animate={{ width: `${progress}%` }}
+             transition={{ ease: "linear", duration: 0.2 }}
           />
         </motion.div>
         

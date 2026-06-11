@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { Search, MapPin, Star, Phone } from 'lucide-react';
 
@@ -62,8 +62,34 @@ export default function SEOSearchSimulation() {
     return () => { isMounted = false; };
   }, [step, targetText]);
 
+  // Mouse tilt tracking
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useTransform(mouseY, [-300, 300], [5, -5]);
+  const rotateY = useTransform(mouseX, [-450, 450], [-5, 5]);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const x = e.clientX - rect.left - width / 2;
+    const y = e.clientY - rect.top - height / 2;
+    mouseX.set(x);
+    mouseY.set(y);
+  }
+
+  function handleMouseLeave() {
+    animate(mouseX, 0, { type: "spring", stiffness: 200, damping: 20 });
+    animate(mouseY, 0, { type: "spring", stiffness: 200, damping: 20 });
+  }
+
   return (
-    <div className="w-full aspect-video rounded-xl overflow-hidden bg-white text-black font-sans shadow-2xl relative border border-white/10 flex flex-col">
+    <motion.div 
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformPerspective: 1200 }}
+      className="w-full aspect-video rounded-xl overflow-hidden bg-white text-black font-sans shadow-2xl relative border border-white/10 flex flex-col transition-shadow duration-300 hover:shadow-[0_20px_50px_rgba(168,85,247,0.08)]"
+    >
       {/* Browser UI header */}
       <div className="h-10 bg-gray-100 border-b border-gray-300 flex items-center px-4 gap-2">
         <div className="flex gap-1.5 mr-4">
@@ -240,6 +266,6 @@ export default function SEOSearchSimulation() {
           </svg>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

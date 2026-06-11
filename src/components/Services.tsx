@@ -39,10 +39,10 @@ export default function Services() {
 
   return (
     <section ref={containerRef} className="relative w-full py-32 md:py-48 bg-bg min-h-screen flex flex-col justify-center">
-      <div className="max-w-7xl mx-auto px-8 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full">
         <motion.div style={{ y: titleY }} className="mb-24">
           <h2 className="text-[10px] uppercase tracking-[0.4em] text-[#86868B] mb-4 font-bold">Core Competencies</h2>
-          <div className="font-display text-[clamp(2.5rem,8vw,90px)] md:text-[clamp(3.5rem,8vw,90px)] font-bold tracking-tight leading-[0.85] pr-4 bg-gradient-to-r from-[#FF2D55] via-[#AF52DE] to-[#007AFF] text-transparent bg-clip-text inline-block pb-4">
+          <div className="font-display text-[clamp(2rem,10vw,90px)] md:text-[clamp(3.5rem,8vw,90px)] font-bold tracking-tight leading-[0.85] pr-4 bg-gradient-to-r from-[#FF2D55] via-[#AF52DE] to-[#007AFF] text-transparent bg-clip-text inline-block pb-4">
             Our Arsenal.
           </div>
         </motion.div>
@@ -56,7 +56,7 @@ export default function Services() {
               onMouseLeave={() => setHoveredIdx(null)}
               initial={{ opacity: 0, y: 150, scale: 0.7, rotateX: -20 }}
               whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-              viewport={{ once: false, margin: "-10%" }}
+              viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.8, delay: idx * 0.05, type: "spring", bounce: 0.4 }}
               style={{ transformPerspective: 1000 }}
             >
@@ -74,7 +74,7 @@ export default function Services() {
                 </span>
                 
                 <motion.h3 
-                  className={`font-display text-[clamp(2rem,6vw,70px)] md:text-[clamp(2.5rem,5vw,70px)] font-bold tracking-tight md:pr-4 ${idx === 0 ? 'bg-gradient-to-r from-[#FF9500] to-[#FF2D55]' : idx === 1 ? 'bg-gradient-to-r from-[#AF52DE] to-[#007AFF]' : 'bg-gradient-to-r from-[#34C759] to-[#007AFF]'} text-transparent bg-clip-text`}
+                  className={`font-display text-[clamp(1.5rem,8vw,70px)] md:text-[clamp(2.5rem,5vw,70px)] font-bold tracking-tight md:pr-4 ${idx === 0 ? 'bg-gradient-to-r from-[#FF9500] to-[#FF2D55]' : idx === 1 ? 'bg-gradient-to-r from-[#AF52DE] to-[#007AFF]' : 'bg-gradient-to-r from-[#34C759] to-[#007AFF]'} text-transparent bg-clip-text break-normal`}
                   initial={{ x: 0 }}
                   whileHover={{ x: 30, skewX: -2 }}
                   transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
@@ -156,7 +156,7 @@ export default function Services() {
                     className="relative z-10 w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl origin-top mx-auto max-w-5xl"
                     initial={{ opacity: 0, height: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, height: "auto", scale: 1 }}
-                    viewport={{ once: false, margin: "-10%" }}
+                    viewport={{ once: true, margin: "-10%" }}
                     transition={{ duration: 1, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
                   >
                     <SEOSearchSimulation />
@@ -275,21 +275,12 @@ export default function Services() {
         <motion.div 
            initial={{ opacity: 0, scale: 0.6, rotateX: 15, y: 100 }}
            whileInView={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
-           viewport={{ once: false, margin: "-100px" }}
+           viewport={{ once: true, margin: "-100px" }}
            transition={{ duration: 1.0, type: "spring", bounce: 0.5 }}
            className="relative mb-32 md:mb-48 z-10 mx-auto w-full"
         >
-          {/* Elegant Ambient Spotlight */}
-          <motion.div 
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-brand/20 blur-[100px] pointer-events-none rounded-[100%]"
-            animate={{ 
-              opacity: [0.3, 0.5, 0.3],
-              scale: [0.9, 1.05, 0.9]
-            }}
-            transition={{
-              duration: 8, repeat: Infinity, ease: "easeInOut" 
-            }}
-          />
+          {/* Ambient glow — pure CSS, no JS animation */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-brand/15 blur-[100px] pointer-events-none rounded-[100%]" />
           
           {/* Core Content Container */}
           <div className="relative z-10 w-full rounded-2xl md:rounded-[2rem] overflow-hidden bg-black shadow-[0_0_100px_rgba(16,185,129,0.15)] border border-white/10 ring-1 ring-white/5 mx-auto max-w-6xl">
@@ -309,8 +300,10 @@ export default function Services() {
                <div className="absolute inset-0 pointer-events-none z-20 transition-opacity duration-700 bg-black/10 group-hover:bg-transparent" />
                <iframe 
                  src="https://www.srivaishnavicycleworld.com/" 
-                 className="absolute inset-0 w-full h-full border-none transition-transform duration-1000 ease-[0.76,0,0.24,1] scale-[1.01] group-hover:scale-100"
+                 loading="lazy"
+                 className="absolute inset-0 w-full h-full border-none pointer-events-none"
                  title="Sri Vaishnavi Cycle World"
+                 sandbox="allow-scripts allow-same-origin"
                />
             </div>
           </div>
@@ -318,14 +311,10 @@ export default function Services() {
 
       </div>
 
-      {/* Floating abstract visual based on hover */}
-      <motion.div 
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] bg-gradient-to-tr from-accent-2 to-brand pointer-events-none mix-blend-screen z-[-1]"
-        animate={{
-          opacity: hoveredIdx !== null ? 0.15 : 0,
-          scale: hoveredIdx !== null ? 1 : 0.8,
-        }}
-        transition={{ duration: 1, ease: "easeOut" }}
+      {/* Hover glow — CSS transition, no Framer motion loop */}
+      <div 
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] bg-gradient-to-tr from-accent-2 to-brand pointer-events-none mix-blend-screen z-[-1] transition-opacity duration-700"
+        style={{ opacity: hoveredIdx !== null ? 0.12 : 0 }}
       />
     </section>
   );

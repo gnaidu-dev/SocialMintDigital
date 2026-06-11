@@ -7,6 +7,27 @@ export default function CampaignSimulator() {
   const adSpend = useMotionValue(1000);
   const [spendValue, setSpendValue] = useState(1000);
 
+  // Mouse tilt tracking
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useTransform(mouseY, [-300, 300], [7, -7]);
+  const rotateY = useTransform(mouseX, [-400, 400], [-7, 7]);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const x = e.clientX - rect.left - width / 2;
+    const y = e.clientY - rect.top - height / 2;
+    mouseX.set(x);
+    mouseY.set(y);
+  }
+
+  function handleMouseLeave() {
+    animate(mouseX, 0, { type: "spring", stiffness: 200, damping: 20 });
+    animate(mouseY, 0, { type: "spring", stiffness: 200, damping: 20 });
+  }
+
   // Derived metrics based on spend
   const reach = useTransform(adSpend, value => Math.round(value * 8.5).toLocaleString());
   const conversions = useTransform(adSpend, value => Math.round(value * 0.12).toLocaleString());
@@ -29,7 +50,12 @@ export default function CampaignSimulator() {
   ];
 
   return (
-    <div className="w-full bg-[#050505] rounded-2xl border border-white/10 p-6 md:p-8 font-sans relative overflow-hidden shadow-2xl">
+    <motion.div 
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformPerspective: 1200 }}
+      className="w-full bg-[#050505] rounded-2xl border border-white/10 p-6 md:p-8 font-sans relative overflow-hidden shadow-2xl transition-shadow duration-300 hover:shadow-[0_20px_50px_rgba(168,85,247,0.08)]"
+    >
       {/* Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-lg bg-gradient-to-b from-[#FF2D55]/10 to-transparent blur-[80px] pointer-events-none" />
 
@@ -126,7 +152,7 @@ export default function CampaignSimulator() {
              </div>
            </div>
         </div>
-      </div>
-    </div>
+       </div>
+    </motion.div>
   );
 }
