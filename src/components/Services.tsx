@@ -117,7 +117,7 @@ export default function Services() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 1, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
-                      className="relative w-full rounded-2xl border border-white/5 shadow-2xl overflow-hidden bg-[#050505] origin-right"
+                      className="relative w-full rounded-2xl border border-white/5 shadow-2xl overflow-hidden bg-black origin-right"
                     >
                       <div className="flex items-center px-4 md:px-6 py-3 border-b border-white/5 bg-[#0a0a0a]">
                         <div className="flex gap-2">

@@ -131,7 +131,7 @@ export default function RootBleed() {
       */}
       <div
         className="fixed inset-0 pointer-events-none select-none overflow-hidden"
-        style={{ zIndex: 1, mixBlendMode: 'multiply', willChange: 'transform' }}
+        style={{ zIndex: 30, mixBlendMode: 'multiply', willChange: 'transform' }}
         aria-hidden="true"
       >
         <VeinSVG stroke="m" />
@@ -144,7 +144,7 @@ export default function RootBleed() {
       */}
       <div
         className="fixed inset-0 pointer-events-none select-none overflow-hidden"
-        style={{ zIndex: 1, mixBlendMode: 'screen', willChange: 'transform', opacity: 0.3 }}
+        style={{ zIndex: 30, mixBlendMode: 'screen', willChange: 'transform', opacity: 0.25 }}
         aria-hidden="true"
       >
         {/* Ambient top bloom — screen makes it glow on dark, invisible on light */}

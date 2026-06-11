@@ -61,7 +61,7 @@ export default function CampaignSimulator() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ rotateX, rotateY, transformPerspective: 1200 }}
-      className="w-full bg-[#050505] rounded-2xl border border-white/10 p-6 md:p-8 font-sans relative overflow-hidden shadow-2xl transition-shadow duration-300 hover:shadow-[0_20px_50px_rgba(168,85,247,0.08)]"
+      className="w-full bg-black rounded-2xl border border-white/10 p-6 md:p-8 font-sans relative overflow-hidden shadow-2xl transition-shadow duration-300 hover:shadow-[0_20px_50px_rgba(168,85,247,0.08)]"
     >
       {/* Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-lg bg-gradient-to-b from-[#FF2D55]/10 to-transparent blur-[80px] pointer-events-none" />
