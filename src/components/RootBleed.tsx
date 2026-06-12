@@ -103,19 +103,19 @@ function VeinSVG() {
             strokeWidth={strokeWidths[i] * 1.3}
             strokeLinecap="round"
             fill="none"
-            opacity={Math.min(1, strokeOpacity[i] * 1.3)}
+            opacity={Math.min(1, strokeOpacity[i] * 0.45)}
           />
         );
       })}
 
       {/* Hairline tendrils */}
       {hairlines.map((h, i) => (
-        <path key={i} d={h.d} stroke="#8000FF" strokeWidth={h.w * 1.3} fill="none" opacity={Math.min(0.9, h.o * 1.8)} />
+        <path key={i} d={h.d} stroke="#8000FF" strokeWidth={h.w * 1.3} fill="none" opacity={Math.min(0.9, h.o * 0.6)} />
       ))}
 
       {/* Junction nodes */}
       {nodes.map((n, i) => (
-        <circle key={i} cx={n.cx} cy={n.cy} r={n.r * 1.4} fill="#00FFC2" opacity={Math.min(1, n.o * 1.8)} />
+        <circle key={i} cx={n.cx} cy={n.cy} r={n.r * 1.4} fill="#00FFC2" opacity={Math.min(1, n.o * 0.6)} />
       ))}
     </svg>
   );
@@ -125,7 +125,7 @@ export default function RootBleed() {
   return (
     <div
       className="absolute inset-0 pointer-events-none select-none overflow-hidden"
-      style={{ zIndex: 2, mixBlendMode: 'normal', willChange: 'transform' }}
+      style={{ zIndex: 0, mixBlendMode: 'normal', willChange: 'transform' }}
       aria-hidden="true"
     >
       <VeinSVG />

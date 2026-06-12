@@ -82,16 +82,8 @@ export default function Hero() {
         </div>
 
         <motion.div style={{ y: y1, opacity, scale }} className="w-full md:col-span-10 md:col-start-2 xl:col-span-8 xl:col-start-3 flex flex-col justify-center relative mt-20 md:mt-0">
-          <div className="overflow-hidden mb-5 relative w-fit">
-            <motion.h2 
-              initial={{ y: "100%", scale: 0.9 }}
-              animate={{ y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.76, 0, 0.24, 1] }}
-              className="text-black/60 font-mono text-xs tracking-[0.3em] uppercase font-bold"
-            >
-              Excellence in Digital
-            </motion.h2>
-            <div className="absolute -top-4 -right-24 text-[10px] bg-black text-white px-3 py-0.5 font-bold rounded-sm rotate-12 select-none">
+          <div className="overflow-hidden mb-5 relative w-fit h-6">
+            <div className="absolute top-0 left-0 text-[10px] bg-black text-white px-3 py-0.5 font-bold rounded-sm rotate-12 select-none">
               EST. 2024
             </div>
           </div>
@@ -101,26 +93,21 @@ export default function Hero() {
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="font-display font-black text-[clamp(2.5rem,10vw,140px)] tracking-tight uppercase italic text-black pr-4 leading-[0.85] flex flex-wrap"
+              className="font-display font-black text-5xl sm:text-6xl md:text-8xl lg:text-[110px] xl:text-[140px] tracking-tight uppercase italic text-black pr-4 leading-[0.85] flex flex-wrap"
               style={{ 
                 transformPerspective: 1000,
                 filter: 'drop-shadow(0 4px 30px rgba(128, 0, 255, 0.35)) drop-shadow(0 0 10px rgba(255, 42, 133, 0.25))'
               }}
             >
-              <span className="flex mr-3 md:mr-6 lg:mr-8 pb-2">
-                {"Social Mint".split("").map((c, i) => (
-                  <motion.span key={i} variants={charAnim} className="inline-block origin-bottom shrink-0 whitespace-pre">
-                    {c}
-                  </motion.span>
-                ))}
-              </span>
-              <span className="bg-gradient-to-br from-[#FF2D55] via-[#AF52DE] to-[#007AFF] text-transparent bg-clip-text flex pb-4 pr-6 shrink-0">
-                {"Digital".split("").map((c, i) => (
-                  <motion.span key={i} variants={charAnim} className="inline-block origin-bottom shrink-0 whitespace-pre">
-                    {c}
-                  </motion.span>
-                ))}
-              </span>
+              {"Social Mint Digital".split(" ").map((word, wIdx) => (
+                <span key={wIdx} className="flex mr-4 md:mr-6 lg:mr-8 pb-2">
+                  {word.split("").map((c, i) => (
+                    <motion.span key={i} variants={charAnim} className="inline-block origin-bottom shrink-0">
+                      {c}
+                    </motion.span>
+                  ))}
+                </span>
+              ))}
             </motion.h1>
           </div>
           
@@ -129,7 +116,7 @@ export default function Hero() {
               initial={{ y: "100%", scale: 0.9 }}
               animate={{ y: 0, scale: 1 }}
               transition={{ duration: 1.0, delay: 0.5, type: "spring", bounce: 0.4 }}
-              className="font-display font-light text-[clamp(2rem,6vw,4rem)] tracking-tight text-black/60 max-w-xl"
+              className="font-display font-light text-4xl sm:text-5xl md:text-6xl tracking-tight text-black/60 max-w-xl"
             >
               Creative <span className="text-black font-semibold">Agency</span>
             </motion.h1>

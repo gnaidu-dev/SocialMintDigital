@@ -62,7 +62,7 @@ export default function Footer() {
             className="flex flex-col items-center gap-4"
           >
             <div className="w-12 h-1 bg-brand rounded-full mb-4"></div>
-            <h2 className="font-display font-light text-[clamp(2.5rem,6vw,80px)] tracking-tight uppercase leading-[1]">
+            <h2 className="font-display font-light text-4xl sm:text-5xl md:text-6xl lg:text-[80px] tracking-tight uppercase leading-[1]">
               Let's build <br className="hidden md:block" />
               <span className="bg-gradient-to-r from-brand via-accent-1 to-accent-2 text-transparent bg-clip-text font-bold italic pr-4">the future</span>
             </h2>
@@ -133,8 +133,8 @@ export default function Footer() {
         
         {/* Massive Background Text */}
         <div className="relative h-48 md:h-64 overflow-hidden flex items-center justify-center mt-12 md:mt-0">
-          <motion.h1 style={{ y: textY }} className="text-[clamp(4rem,15vw,250px)] font-display font-black tracking-tighter text-white/[0.04] uppercase whitespace-nowrap pointer-events-none select-none italic text-center w-full pb-8">
-            SOCIAL MINT
+          <motion.h1 style={{ y: textY }} className="text-5xl sm:text-7xl md:text-[120px] lg:text-[180px] xl:text-[250px] font-display font-black tracking-tighter text-white/[0.04] uppercase whitespace-nowrap pointer-events-none select-none italic text-center w-full pb-8">
+            SOCIAL MINT DIGITAL
           </motion.h1>
         </div>
       </footer>
@@ -142,13 +142,13 @@ export default function Footer() {
       {/* Otherlife-style Contact Modal */}
       <AnimatePresence>
         {isContactOpen && (
-          <div className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
             {/* Backdrop click to close */}
             <div className="absolute inset-0 cursor-pointer" onClick={() => setIsContactOpen(false)} />
             
             {/* Modal Card */}
             <motion.div 
-              className="w-full max-w-xl bg-[#F8F9FA] rounded-[32px] border-[5px] border-[#1A1A1A] p-8 md:p-12 relative shadow-[0_24px_50px_rgba(0,0,0,0.4)] z-10"
+              className="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#F8F9FA] rounded-[32px] border-[4px] md:border-[5px] border-[#1A1A1A] p-6 sm:p-8 md:p-12 relative shadow-[0_24px_50px_rgba(0,0,0,0.4)] z-10"
               initial={{ scale: 0.9, y: 40, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 30, opacity: 0 }}
@@ -157,7 +157,7 @@ export default function Footer() {
               {/* Close Button */}
               <button 
                 onClick={() => setIsContactOpen(false)} 
-                className="absolute top-6 right-6 text-[#1A1A1A]/60 hover:text-black transition-colors p-2"
+                className="absolute top-4 right-4 md:top-6 md:right-6 text-[#1A1A1A]/60 hover:text-black transition-colors p-2 bg-[#F8F9FA] rounded-full z-20"
                 aria-label="Close modal"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -166,57 +166,114 @@ export default function Footer() {
                 </svg>
               </button>
 
-              <h2 className="font-sans font-medium text-2xl md:text-3xl text-black mb-8 leading-tight">
+              <h2 className="font-sans font-medium text-2xl md:text-3xl text-black mb-6 md:mb-8 leading-tight pr-8">
                 Lets work together.
               </h2>
 
-              <form onSubmit={onSubmit} className="flex flex-col gap-6 w-full">
-                <div className="relative text-left">
-                  <input 
-                    type="text" 
-                    name="name" 
-                    required 
-                    placeholder="Full name"
-                    className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors"
-                  />
+              <form onSubmit={onSubmit} className="flex flex-col gap-5 md:gap-8 w-full">
+                <input type="hidden" name="subject" value="New Lead from Digital Agency Website" />
+                <input type="hidden" name="from_name" value="Digital Agency Website" />
+
+                <div className="grid md:grid-cols-2 gap-5 md:gap-8">
+                  <div className="relative text-left">
+                    <input 
+                      type="text" 
+                      name="first_name" 
+                      required 
+                      placeholder="First Name *"
+                      className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors"
+                    />
+                  </div>
+                  
+                  <div className="relative text-left">
+                    <input 
+                      type="text" 
+                      name="last_name" 
+                      required 
+                      placeholder="Last Name *"
+                      className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors"
+                    />
+                  </div>
                 </div>
-                
-                <div className="relative text-left">
+
+                <div className="grid md:grid-cols-2 gap-5 md:gap-8">
+                  <div className="relative text-left">
+                    <input 
+                      type="email" 
+                      name="email" 
+                      required 
+                      placeholder="Email Address *"
+                      className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors"
+                    />
+                  </div>
+
+                  <div className="relative text-left">
+                    <input 
+                      type="text" 
+                      name="company" 
+                      required
+                      placeholder="Company Name *"
+                      className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div className="relative text-left flex items-end gap-2 md:gap-4 border-b border-black/30 pb-0 transition-colors focus-within:border-black group">
+                  <div className="relative flex-shrink-0">
+                    <select 
+                      name="countryCode" 
+                      defaultValue="+1"
+                      className="bg-transparent py-3 text-lg md:text-xl font-normal text-black outline-none appearance-none cursor-pointer pr-6"
+                    >
+                      <option value="+1">+1 (US)</option>
+                      <option value="+44">+44 (UK)</option>
+                      <option value="+61">+61 (AU)</option>
+                      <option value="+91">+91 (IN)</option>
+                      <option value="+971">+971 (AE)</option>
+                    </select>
+                    <div className="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 flex items-center text-black/55">
+                      <svg className="fill-current h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                  </div>
                   <input 
-                    type="email" 
-                    name="email" 
-                    required 
-                    placeholder="Email"
-                    className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors"
+                    type="tel" 
+                    name="phone" 
+                    placeholder="Phone Number *"
+                    required
+                    maxLength={15}
+                    pattern="[0-9\-\s]+"
+                    title="Please enter a valid phone number"
+                    className="w-full bg-transparent py-3 text-lg md:text-xl font-normal text-black outline-none placeholder-black/55"
                   />
                 </div>
 
                 <div className="relative text-left">
-                  <input 
-                    type="text" 
-                    name="company" 
-                    placeholder="Company name or website"
-                    className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors"
-                  />
+                  <select 
+                    name="service" 
+                    required 
+                    defaultValue=""
+                    className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black transition-colors appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled className="text-black/55">Service Interested In *</option>
+                    <option value="strategy">Digital Strategy</option>
+                    <option value="social">Social Media Management</option>
+                    <option value="web">Web Design</option>
+                    <option value="leads">Lead Generation</option>
+                    <option value="all">Complete Digital Marketing</option>
+                  </select>
+                  {/* Custom dropdown arrow */}
+                  <div className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 flex items-center px-2 text-black/55">
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
                 </div>
 
                 <div className="relative text-left">
-                  <input 
-                    type="text" 
+                  <textarea 
                     name="message" 
-                    required 
-                    placeholder="Tell us your idea - Describe your vision"
-                    className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors"
-                  />
-                </div>
-
-                <div className="relative text-left">
-                  <input 
-                    type="text" 
-                    name="referral" 
-                    placeholder="How did you hear about us?"
-                    className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors"
-                  />
+                    rows={2}
+                    placeholder="Tell Us About Your Goals"
+                    className="w-full bg-transparent border-b border-black/30 py-3 text-lg md:text-xl font-normal text-black outline-none focus:border-black placeholder-black/55 transition-colors resize-none"
+                  ></textarea>
                 </div>
 
                 <div className="flex items-center justify-between mt-8">
