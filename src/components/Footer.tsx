@@ -93,12 +93,13 @@ export default function Footer() {
               <span className="text-[10px] uppercase tracking-widest text-[#666666] mb-4 block font-bold">Address</span>
               <span className="text-xl md:text-2xl font-light block">Social Mint Digital</span>
               <span className="text-sm md:text-base font-light block text-[#AAAAAA] mt-2">No.5, Rich Homes, Richmond Road,<br/>Bangalore – 560025</span>
-            </div>
-            <div className="mt-8 flex items-center gap-4">
-              <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
-                <div className="w-1.5 h-1.5 bg-accent-3 rounded-full animate-pulse"></div>
-              </div>
-              <span className="text-[10px] uppercase tracking-widest text-[#AAAAAA]">Online & Active</span>
+              
+              <a 
+                href="mailto:info@socialmintdigital.com" 
+                className="mt-6 inline-block text-base md:text-lg font-medium text-white transition-all duration-300 [text-shadow:0_0_15px_rgba(0,255,194,0.5),_0_0_30px_rgba(0,255,194,0.3)] hover:[text-shadow:0_0_25px_rgba(0,255,194,0.8),_0_0_50px_rgba(0,255,194,0.6)]"
+              >
+                info@socialmintdigital.com
+              </a>
             </div>
           </div>
 
@@ -116,17 +117,9 @@ export default function Footer() {
           </div>
           
           {/* Contact Section */}
-          <div className="p-8 md:p-12 flex flex-col justify-between">
-            <div>
-              <span className="text-[10px] uppercase tracking-widest text-[#666666] mb-6 block font-bold">Direct Line</span>
-              <a href="mailto:info@socialmintdigital.com" className="text-base text-[#AAAAAA] hover:text-white transition-colors font-light break-all relative group inline-block">
-                info@socialmintdigital.com
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-brand transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            </div>
-            
+          <div className="p-8 md:p-12 flex flex-col justify-end text-left md:text-right">
             <div className="mt-12 md:mt-0">
-               <span className="text-[10px] uppercase tracking-widest text-[#666666] block font-bold">© {new Date().getFullYear()} Social Mint Digital</span>
+               <span className="text-sm md:text-base uppercase tracking-wider text-[#AAAAAA] block font-medium">© 2026 Social Mint Digital. All Rights Reserved.</span>
             </div>
           </div>
         </div>
