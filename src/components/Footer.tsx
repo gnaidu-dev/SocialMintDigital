@@ -43,8 +43,8 @@ export default function Footer() {
         <div className="border-b md:border-b-0 md:border-r border-white/10 p-8 md:p-12 flex flex-col justify-between">
           <div>
             <span className="text-[10px] uppercase tracking-widest text-[#666666] mb-4 block font-bold">Address</span>
-            <span className="text-xl md:text-2xl font-light block">Innovation Hub</span>
-            <span className="text-sm md:text-base font-light block text-[#AAAAAA] mt-2">123 Digital Ave<br/>Tech District, NY 10001</span>
+            <span className="text-xl md:text-2xl font-light block">Social Mint Digital</span>
+            <span className="text-sm md:text-base font-light block text-[#AAAAAA] mt-2">No.5, Rich Homes, Richmond Road,<br/>Bangalore – 560025</span>
           </div>
           <div className="mt-8 flex items-center gap-4">
             <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
