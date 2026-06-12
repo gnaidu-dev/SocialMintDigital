@@ -117,18 +117,11 @@ export default function Footer() {
           </div>
           
           {/* Contact Section */}
-          <div className="p-8 md:p-12 flex flex-col justify-end text-left md:text-right">
+          <div className="p-8 md:p-12 flex flex-col justify-center text-center md:items-center">
             <div className="mt-12 md:mt-0">
                <span className="text-sm md:text-base uppercase tracking-wider text-[#AAAAAA] block font-medium">© 2026 Social Mint Digital. All Rights Reserved.</span>
             </div>
           </div>
-        </div>
-        
-        {/* Massive Background Text */}
-        <div className="relative h-48 md:h-64 overflow-hidden flex items-center justify-center mt-12 md:mt-0">
-          <motion.h1 style={{ y: textY }} className="text-5xl sm:text-7xl md:text-[120px] lg:text-[180px] xl:text-[250px] font-display font-black tracking-tighter text-white/[0.04] uppercase whitespace-nowrap pointer-events-none select-none italic text-center w-full pb-8">
-            SOCIAL MINT DIGITAL
-          </motion.h1>
         </div>
       </footer>
 
