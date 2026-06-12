@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useMotionValue, useTransform, animate } from 'motion/react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Search, MapPin, Star, Phone } from 'lucide-react';
 
 export default function SEOSearchSimulation() {

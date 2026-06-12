@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform, animate } from 'motion/react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Target, TrendingUp, Users, Zap } from 'lucide-react';
 
 export default function CampaignSimulator() {
