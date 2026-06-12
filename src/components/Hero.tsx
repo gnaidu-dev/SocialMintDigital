@@ -133,30 +133,6 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.8, type: "spring" }}
-            className="w-fit"
-          >
-            <Magnetic>
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="relative mt-8 group flex items-center gap-3 overflow-hidden rounded-full border border-black/10 bg-black px-7 py-3.5 text-xs font-bold tracking-widest text-white transition-all duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.15)] cursor-pointer"
-              >
-                <span>LAUNCH PROJECT</span>
-                <svg 
-                  className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </motion.button>
-            </Magnetic>
-          </motion.div>
         </motion.div>
       </div>
 
