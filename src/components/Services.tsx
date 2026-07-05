@@ -35,7 +35,7 @@ export default function Services() {
     offset: ["start end", "end start"]
   });
 
-  const titleY = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const titleY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
     <section ref={containerRef} className="relative w-full py-32 md:py-48 bg-bg min-h-screen flex flex-col justify-center">
@@ -51,7 +51,7 @@ export default function Services() {
           {SERVICES.map((srv, idx) => (
             <motion.div 
               key={srv.id}
-              className="group relative border-b border-white/10 py-12 md:py-16 flex flex-col md:flex-row md:items-center justify-between"
+              className="group relative border-b border-white/10 py-12 md:py-16 flex flex-col"
               onMouseEnter={() => setHoveredIdx(idx)}
               onMouseLeave={() => setHoveredIdx(null)}
               initial={{ opacity: 0, y: 150, scale: 0.7, rotateX: -20 }}
@@ -68,28 +68,32 @@ export default function Services() {
                 transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
               />
 
-              <div className="relative z-10 flex flex-col md:flex-row md:items-baseline gap-6 md:gap-16 w-full">
-                <span className="text-[14px] uppercase tracking-widest text-[#86868B] mb-2 font-bold opacity-50 group-hover:opacity-100 transition-opacity duration-500">
-                  {srv.id} //
-                </span>
-                
-                <motion.h3 
-                  className={`font-display text-[clamp(1.5rem,8vw,70px)] md:text-[clamp(2.5rem,5vw,70px)] font-bold tracking-tight md:pr-4 ${idx === 0 ? 'bg-gradient-to-r from-[#FF9500] to-[#FF2D55]' : idx === 1 ? 'bg-gradient-to-r from-[#AF52DE] to-[#007AFF]' : 'bg-gradient-to-r from-[#34C759] to-[#007AFF]'} text-transparent bg-clip-text break-normal`}
-                  initial={{ x: 0 }}
-                  whileHover={{ x: 30, skewX: -2 }}
-                  transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-                >
-                  {srv.title}
-                </motion.h3>
+              <div className="relative z-10 flex flex-col gap-2 w-full">
+                <div className="flex items-baseline gap-4 md:gap-6 w-full">
+                  <span className="text-[12px] md:text-[14px] uppercase tracking-widest text-[#86868B] font-bold opacity-50 group-hover:opacity-100 transition-opacity duration-500 shrink-0">
+                    {srv.id} //
+                  </span>
+                  
+                  <div className="flex flex-col gap-2 w-full">
+                    <motion.h3 
+                      className={`font-display text-[clamp(1.5rem,8vw,70px)] md:text-[clamp(2.5rem,5vw,70px)] font-bold tracking-tight md:pr-4 ${idx === 0 ? 'bg-gradient-to-r from-[#FF9500] to-[#FF2D55]' : idx === 1 ? 'bg-gradient-to-r from-[#AF52DE] to-[#007AFF]' : 'bg-gradient-to-r from-[#34C759] to-[#007AFF]'} text-transparent bg-clip-text break-normal`}
+                      initial={{ x: 0 }}
+                      whileHover={{ x: 30, skewX: -2 }}
+                      transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+                    >
+                      {srv.title}
+                    </motion.h3>
 
-                <div className="md:ml-auto max-w-sm ml-0">
-                  <motion.p 
-                    className="text-[#86868B] text-sm md:text-base leading-relaxed group-hover:text-[#F5F5F7] transition-colors duration-500"
-                    initial={{ opacity: 0.5, y: 0 }}
-                    whileHover={{ opacity: 1, y: -5 }}
-                  >
-                    {srv.description}
-                  </motion.p>
+                    <div className="max-w-2xl">
+                      <motion.p 
+                        className="text-[#86868B] text-sm md:text-base leading-relaxed group-hover:text-[#F5F5F7] transition-colors duration-500"
+                        initial={{ opacity: 0.5, y: 0 }}
+                        whileHover={{ opacity: 1, y: -5 }}
+                      >
+                        {srv.description}
+                      </motion.p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -265,7 +269,7 @@ export default function Services() {
         </div>
         
         {/* Website Showcase with Elegant Motion Spotlight */}
-        <motion.div style={{ y: titleY }} className="mb-16 mt-8">
+        <motion.div style={{ y: titleY }} className="mb-24 md:mb-36 mt-16 md:mt-24">
           <h2 className="text-[10px] uppercase tracking-[0.4em] text-[#86868B] mb-4 font-bold">Featured Case Study</h2>
           <div className="font-display text-[clamp(2.5rem,8vw,90px)] md:text-[clamp(3.5rem,8vw,90px)] font-bold tracking-tight leading-[0.85] pr-4 bg-gradient-to-r from-[#FF9500] to-[#FF2D55] text-transparent bg-clip-text inline-block pb-4">
             What We Built.

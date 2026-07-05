@@ -5,7 +5,7 @@
 
 import { useState } from 'react';
 import { AnimatePresence } from 'motion/react';
-import SmoothScroll from './components/SmoothScroll';
+import { ScrollArea } from './components/ui/scroll-area';
 import Loader from './components/Loader';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -17,7 +17,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <SmoothScroll>
+    <ScrollArea className="h-screen w-full">
       <GridBackground />
       <FloatingElements />
       
@@ -30,6 +30,6 @@ export default function App() {
         <Services />
         <Footer />
       </main>
-    </SmoothScroll>
+    </ScrollArea>
   );
 }
